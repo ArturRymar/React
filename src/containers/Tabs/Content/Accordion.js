@@ -1,38 +1,33 @@
 import React from "react";
-import PropTypes from "prop-types";
-//styles
-import {
-  ExpansionPanel,
-  PanelTitle,
-  PanelContent
-} from "styles/Tabs/Content/accordion";
+//constants
+import { panels } from "constants/Tabs/Content/accordion";
+//class
+import AccordionItem from "components/Tabs/Content/Accordion";
 
-class AccordionItem extends React.Component {
-  state = { opened: false };
+class Accordion extends React.Component {
+  state = { opened: false, panelTitle: "" };
 
-  titleClick = () => {
-    this.setState({ opened: !this.state.opened });
+  titleClick = value => () => {
+    this.setState({ opened: !this.state.opened, panelTitle: value });
   };
 
   render() {
-    const {
-      props: { title, content },
-      state: { opened }
-    } = this;
+    const { opened, panelTitle } = this.state;
     return (
-      <ExpansionPanel opened={opened}>
-        <PanelTitle onClick={this.titleClick} opened={opened}>
-          {title}
-        </PanelTitle>
-        <PanelContent opened={opened}>{content}</PanelContent>
-      </ExpansionPanel>
+      <React.Fragment>
+        {panels.map(elem => (
+          <AccordionItem
+            key={elem.id}
+            title={elem.title}
+            content={elem.content}
+            titleClick={this.titleClick}
+            opened={opened}
+            panelTitle={panelTitle}
+          />
+        ))}
+      </React.Fragment>
     );
   }
 }
 
-AccordionItem.propTypes = {
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired
-};
-
-export default AccordionItem;
+export default Accordion;

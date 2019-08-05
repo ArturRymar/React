@@ -11,7 +11,7 @@ import { AccordionContainer } from "styles/Tabs/Content/accordion";
 import { tabButtons, tabContent } from "constants/Tabs/Item/tabItem";
 //components
 import TabItem from "components/Tabs/Item/TabItem";
-import Accordion from "components/Tabs/Content/Accordion";
+import Accordion from "containers/Tabs/Content/Accordion";
 
 class Tabs extends React.Component {
   state = { activeTab: tabButtons.first };
