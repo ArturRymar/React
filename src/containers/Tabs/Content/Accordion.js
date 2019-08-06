@@ -5,24 +5,28 @@ import { panels } from "constants/Tabs/Content/accordion";
 import AccordionItem from "components/Tabs/Content/Accordion";
 
 class Accordion extends React.Component {
-  state = { opened: false, panelTitle: "" };
+  state = { activePanels: [] };
 
-  titleClick = value => () => {
-    this.setState({ opened: !this.state.opened, panelTitle: value });
+  titleClick = id => () => {
+    const { activePanels } = this.state;
+    const opened = activePanels.includes(id)
+      ? activePanels.filter(item => item !== id)
+      : activePanels.concat(id);
+    this.setState({ activePanels: opened });
   };
 
   render() {
-    const { opened, panelTitle } = this.state;
+    const { activePanels } = this.state;
     return (
       <React.Fragment>
         {panels.map(elem => (
           <AccordionItem
             key={elem.id}
+            id={elem.id}
             title={elem.title}
             content={elem.content}
             titleClick={this.titleClick}
-            opened={opened}
-            panelTitle={panelTitle}
+            opened={activePanels.includes(elem.id)}
           />
         ))}
       </React.Fragment>
