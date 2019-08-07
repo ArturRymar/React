@@ -7,9 +7,9 @@ import {
   PanelContent
 } from "styles/Tabs/Content/accordion";
 
-const AccordionItem = ({ title, content, opened, titleClick, id }) => (
+const AccordionItem = ({ title, content, opened, titleClick }) => (
   <ExpansionPanel opened={opened}>
-    <PanelTitle onClick={titleClick(id)} opened={opened}>
+    <PanelTitle onClick={titleClick} opened={opened}>
       {title}
     </PanelTitle>
     <PanelContent opened={opened}>{content}</PanelContent>
@@ -20,7 +20,6 @@ AccordionItem.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   opened: PropTypes.bool.isRequired,
-  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   titleClick: PropTypes.func.isRequired
 };
 

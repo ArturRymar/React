@@ -11,7 +11,7 @@ class Accordion extends React.Component {
     const { activePanels } = this.state;
     const opened = activePanels.includes(id)
       ? activePanels.filter(item => item !== id)
-      : activePanels.concat(id);
+      : [...activePanels, id];
     this.setState({ activePanels: opened });
   };
 
@@ -22,10 +22,9 @@ class Accordion extends React.Component {
         {panels.map(elem => (
           <AccordionItem
             key={elem.id}
-            id={elem.id}
             title={elem.title}
             content={elem.content}
-            titleClick={this.titleClick}
+            titleClick={this.titleClick(elem.id)}
             opened={activePanels.includes(elem.id)}
           />
         ))}
