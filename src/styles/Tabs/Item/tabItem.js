@@ -1,14 +1,14 @@
 import styled, { css } from "styled-components";
 
 const Container = styled.div`
-  width: 600px;
+  width: 850px;
   height: 100%;
   background: #f5f5f5;
   padding: 15px;
 `;
 
 const TabContainer = styled.div`
-  width: 600px;
+  width: 850px;
   height: 45px;
   background: #375dd6;
   position: relative;
@@ -24,7 +24,7 @@ const TabContainer = styled.div`
 `;
 
 const ContentContainer = styled.div`
-  width: 100%;
+  width: auto;
   height: auto;
   background: white;
   color: black;

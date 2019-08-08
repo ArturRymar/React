@@ -12,6 +12,7 @@ import { tabButtons, tabContent } from "constants/Tabs/Item/tabItem";
 //components
 import TabItem from "components/Tabs/Item/TabItem";
 import Accordion from "containers/Tabs/Content/Accordion";
+import Table from "components/Tabs/Content/Table/Table";
 
 class Tabs extends React.Component {
   state = { activeTab: tabButtons.first };
@@ -34,7 +35,7 @@ class Tabs extends React.Component {
             </AccordionContainer>
           )}
           {activeTab === tabButtons.second && (
-            <Content>{tabContent.second}</Content>
+              <Table />
           )}
           {activeTab === tabButtons.third && (
             <Content>{tabContent.third}</Content>

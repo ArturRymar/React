@@ -2,7 +2,7 @@ import React from "react";
 //constants
 import { panels } from "constants/Tabs/Content/accordion";
 //class
-import AccordionItem from "components/Tabs/Content/Accordion";
+import AccordionItem from "components/Tabs/Content/Accordion/Accordion";
 
 class Accordion extends React.Component {
   state = { activePanels: [] };

@@ -1,6 +1,6 @@
 const tabButtons = {
   first: "Accordion",
-  second: "ITEM SECOND",
+  second: "Table",
   third: "ITEM THIRD"
 };
 

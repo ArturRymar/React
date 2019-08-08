@@ -1,13 +1,11 @@
 import styled, { css } from "styled-components";
 
 const ExpansionPanel = styled.div`
-  width: 100%;
+  width: auto;
   height: 100%;
   background: white;
   color: black;
   margin-bottom: 1px;
-  z-index: 1;
-  position: relative;
   box-shadow: 0 1px 1px #a29e9e;
   ${({ opened }) =>
     opened &&
