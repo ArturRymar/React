@@ -22,8 +22,6 @@ const TableBody = styled.div`
 const RowContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  grid-column-start: 1;
-  grid-column-end: ${tableTitle.length + 1};
   div:first-child {
     border-top: none;
   }
