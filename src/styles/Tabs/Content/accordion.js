@@ -11,7 +11,7 @@ const ExpansionPanel = styled.div`
     opened &&
     css`
       margin: 10px 0;
-    `}
+    `};
 `;
 
 const PanelTitle = styled.div`

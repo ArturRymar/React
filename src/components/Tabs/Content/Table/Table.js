@@ -1,6 +1,5 @@
 import React from "react";
-import { tableTitle, tableContent } from "constants/Tabs/Content/table";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 //styles
 import {
   TableBody,
@@ -11,33 +10,36 @@ import {
   TitleContainer
 } from "styles/Tabs/Content/table";
 
-const Titles = () => (
-  <TitleContainer>
-    {tableTitle.map(elem => (
+const Titles = ({ title }) => (
+  <TitleContainer number={title.length}>
+    {title.map(elem => (
       <Title key={elem.toString()}>{elem}</Title>
     ))}
   </TitleContainer>
 );
 
-const TableContent = () => (
+const TableContent = ({ content }) => (
   <RowContainer>
-    {tableContent.map((elem, index) => (
-      <Row key={index}>
+    {content.map((elem, index) => (
+      <Row number={Object.keys(elem).length} key={index}>
         {Object.values(elem).map((item, ind) => (
-          <Cell key={ind}>
-            {item}
-          </Cell>
+          <Cell key={ind}>{item}</Cell>
         ))}
       </Row>
     ))}
   </RowContainer>
 );
 
-const Table = () => (
+const Table = ({ title, content }) => (
   <TableBody>
-    <Titles />
-    <TableContent />
+    <Titles title={title} />
+    <TableContent content={content} />
   </TableBody>
 );
+
+Table.propTypes = {
+  title: PropTypes.array.isRequired,
+  content: PropTypes.array.isRequired
+};
 
 export default Table;

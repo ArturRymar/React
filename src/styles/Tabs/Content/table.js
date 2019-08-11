@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { tableTitle } from "constants/Tabs/Content/table";
 
 const TableBody = styled.div`
   display: grid;
@@ -29,7 +28,8 @@ const RowContainer = styled.div`
 
 const Row = styled.div`
   display: grid;
-  grid-template-columns: 2fr repeat(${tableTitle.length - 1}, 1fr);
+  ${({ number }) =>
+    number ? `grid-template-columns: 2fr repeat(${number - 1}, 1fr)` : ""};
   border-top: 1px solid black;
   div:first-child {
     text-align: left;
@@ -55,7 +55,8 @@ const Title = styled.div`
 
 const TitleContainer = styled.div`
   display: grid;
-  grid-template-columns: 2fr repeat(${tableTitle.length - 1}, 1fr);
+  ${({ number }) =>
+    number ? `grid-template-columns: 2fr repeat(${number - 1}, 1fr)` : ""};
   div:first-child {
     text-align: left;
   }

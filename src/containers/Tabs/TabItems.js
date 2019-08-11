@@ -9,6 +9,7 @@ import {
 import { AccordionContainer } from "styles/Tabs/Content/accordion";
 //constants
 import { tabButtons, tabContent } from "constants/Tabs/Item/tabItem";
+import { tableTitle, tableContent } from "constants/Tabs/Content/table";
 //components
 import TabItem from "components/Tabs/Item/TabItem";
 import Accordion from "containers/Tabs/Content/Accordion";
@@ -35,7 +36,7 @@ class Tabs extends React.Component {
             </AccordionContainer>
           )}
           {activeTab === tabButtons.second && (
-              <Table />
+            <Table title={tableTitle} content={tableContent} />
           )}
           {activeTab === tabButtons.third && (
             <Content>{tabContent.third}</Content>
