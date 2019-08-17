@@ -1,25 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { tabButtons } from "constants/Tabs/Item/tabItem";
 
 const enhancedTabs = Component => {
-  class EnhancedComponent extends React.Component {
-    state = { activeTab: tabButtons.first };
+  const EnhancedComponent = props => {
+    const [activeTab, setActiveTab] = useState(tabButtons.first);
 
-    buttonClick = value => () => {
-      this.setState({ activeTab: value });
+    const buttonClick = value => () => {
+      setActiveTab(value);
     };
 
-    render() {
-      const { activeTab } = this.state;
-      return (
-        <Component
-          {...this.props}
-          activeTab={activeTab}
-          buttonClick={this.buttonClick}
-        />
-      );
-    }
-  }
+    return (
+      <Component {...props} activeTab={activeTab} buttonClick={buttonClick} />
+    );
+  };
 
   EnhancedComponent.displayName = `enhancedTabs(${Component.displayName ||
     Component.name ||

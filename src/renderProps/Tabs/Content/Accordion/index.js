@@ -1,24 +1,21 @@
-import React from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 
-class Accordion extends React.Component {
-  state = { activePanels: [] };
+const Accordion = props => {
+  const [activePanels, setActivePanel] = useState([]);
 
-  titleClick = id => () => {
-    const { activePanels } = this.state;
+  const titleClick = id => () => {
     const opened = activePanels.includes(id)
       ? activePanels.filter(item => item !== id)
       : [...activePanels, id];
-    this.setState({ activePanels: opened });
+    setActivePanel(opened);
   };
 
-  render() {
-    return this.props.children({
-      activePanels: this.state.activePanels,
-      titleClick: this.titleClick
-    });
-  }
-}
+  return props.children({
+    activePanels: activePanels,
+    titleClick: titleClick
+  });
+};
 
 Accordion.propTypes = {
   children: PropTypes.func.isRequired
