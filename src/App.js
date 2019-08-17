@@ -1,6 +1,6 @@
 import React from "react";
 //class
-import Tabs from "containers/Tabs/TabItems";
+import Tabs from "components/Tabs/Tabs";
 
 const App = () => <Tabs />;
 
