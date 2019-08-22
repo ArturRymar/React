@@ -7,19 +7,20 @@ import {
   Content
 } from "styles/Tabs/Item/tabItem";
 import { AccordionContainer } from "styles/Tabs/Content/accordion";
+import { ThemeButton } from "styles/Tabs/Content/table";
 //constants
 import { tabButtons, tabContent } from "constants/Tabs/Item/tabItem";
 import { tableTitle, tableContent } from "constants/Tabs/Content/table";
 import { panels } from "constants/Tabs/Content/accordion";
 //components
 import TabItem from "components/Tabs/Item/TabItem";
-import Accordion from "renderProps/Tabs/Content/Accordion/index";
+import Accordion from "renderProps/Accordion/index";
 import Table from "components/Tabs/Content/Table/Table";
 import enhancedTabs from "hoc/Tabs/enhancedTabs";
 import AccordionItem from "components/Tabs/Content/Accordion/Accordion";
 
 const Tabs = props => {
-  const { buttonClick, activeTab } = props;
+  const { buttonClick, activeTab, changeTheme } = props;
   return (
     <Container>
       <TabContainer>
@@ -44,7 +45,10 @@ const Tabs = props => {
           </AccordionContainer>
         )}
         {activeTab === tabButtons.second && (
-          <Table title={tableTitle} content={tableContent} />
+          <React.Fragment>
+            <Table title={tableTitle} content={tableContent} />
+            <ThemeButton onClick={changeTheme}>ChangeTheme</ThemeButton>
+          </React.Fragment>
         )}
         {activeTab === tabButtons.third && (
           <Content>{tabContent.third}</Content>

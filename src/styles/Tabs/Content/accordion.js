@@ -3,8 +3,8 @@ import styled, { css } from "styled-components";
 const ExpansionPanel = styled.div`
   width: auto;
   height: 100%;
-  background: white;
-  color: black;
+  color: ${({ color }) => color};
+  background: ${({ background }) => background};
   margin-bottom: 1px;
   box-shadow: 0 1px 1px #a29e9e;
   ${({ opened }) =>
@@ -15,7 +15,6 @@ const ExpansionPanel = styled.div`
 `;
 
 const PanelTitle = styled.div`
-  color: black;
   font-size: 14px;
   cursor: pointer;
   margin-left: 15px;

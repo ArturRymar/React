@@ -8,6 +8,8 @@ const TableBody = styled.div`
   font-size: 13px;
   position: relative;
   z-index: 1;
+  color: ${({ color }) => color};
+  background: ${({ background }) => background};
   &:before {
     content: "";
     width: 100%;
@@ -60,4 +62,28 @@ const TitleContainer = styled.div`
   }
 `;
 
-export { TableBody, Cell, Title, Row, RowContainer, TitleContainer };
+const ThemeButton = styled.button`
+  height: 30px;
+  width: 120px;
+  border-radius: 15px;
+  border: 2px solid #8a8888;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 8px 0 rgba(0, 0, 0, 0.19);
+  outline: none;
+  background: lightblue;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 15px;
+  &:active {
+    box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.3), 0 1px 0 rgba(0, 0, 0, 0.3);
+  }
+`;
+
+export {
+  TableBody,
+  Cell,
+  Title,
+  Row,
+  RowContainer,
+  TitleContainer,
+  ThemeButton
+};
