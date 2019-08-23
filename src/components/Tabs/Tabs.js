@@ -13,7 +13,8 @@ import { ThemeButton } from "styles/Tabs/Content/table";
 import { tabButtons, tabContent } from "constants/Tabs/Item/tabItem";
 import { tableTitle, tableContent } from "constants/Tabs/Content/table";
 import { panels } from "constants/Tabs/Content/accordion";
-import { ThemeContext } from "context-providers/Themes/index";
+//context
+import { ThemeContext } from "context-providers/Themes/light_dark";
 //components
 import TabItem from "components/Tabs/Item/TabItem";
 import Accordion from "renderProps/Accordion/index";

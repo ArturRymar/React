@@ -1,7 +1,11 @@
 import React, { useState, useContext } from "react";
 //constants
 import { tabButtons } from "constants/Tabs/Item/tabItem";
-import { ThemeContext, ThemeProvider } from "context-providers/Themes/index";
+//context
+import {
+  ThemeContext,
+  ThemeProvider
+} from "context-providers/Themes/light_dark";
 
 const enhancedTabs = Component => {
   const EnhancedComponent = props => {
