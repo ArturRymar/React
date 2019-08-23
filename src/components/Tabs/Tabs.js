@@ -23,18 +23,19 @@ import enhancedTabs from "hoc/Tabs/enhancedTabs";
 import AccordionItem from "components/Tabs/Content/Accordion/Accordion";
 
 const Tabs = props => {
-  const { buttonClick, activeTab, changeTheme } = props;
+  const { buttonClick, activeTab } = props;
+  const { changeTheme, theme } = useContext(ThemeContext);
   return (
     <Container>
       <TabContainer
-        color={useContext(ThemeContext).color}
-        background={useContext(ThemeContext).background}
+        color={theme.color}
+        background={theme.background}
       >
         <TabItem activeTab={activeTab} buttonClick={buttonClick} />
       </TabContainer>
       <ContentContainer
-        color={useContext(ThemeContext).color}
-        background={useContext(ThemeContext).background}
+        color={theme.color}
+        background={theme.background}
       >
         {activeTab === tabButtons.first && (
           <AccordionContainer>

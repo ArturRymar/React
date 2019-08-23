@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
 
-const theme = {
+const themes = {
   light: {
     color: "black",
     background: "white"
@@ -12,15 +12,25 @@ const theme = {
   }
 };
 
-const ThemeContext = React.createContext(theme);
+const ThemeContext = React.createContext(themes);
 
-const ThemeProvider = ({ children, value }) => (
-  <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
-);
+const ThemeProvider = ({ children }) => {
+  const theme = useContext(ThemeContext);
+  const [activeTheme, setActiveTheme] = useState(theme.light);
+
+  const changeTheme = () => {
+    setActiveTheme(activeTheme === theme.light ? theme.dark : theme.light);
+  };
+
+  const initial = { theme: activeTheme, changeTheme };
+
+  return (
+    <ThemeContext.Provider value={initial}>{children}</ThemeContext.Provider>
+  );
+};
 
 ThemeProvider.propTypes = {
-  children: PropTypes.element,
-  value: PropTypes.objectOf(PropTypes.string)
+  children: PropTypes.node
 };
 
 export { ThemeContext, ThemeProvider };
