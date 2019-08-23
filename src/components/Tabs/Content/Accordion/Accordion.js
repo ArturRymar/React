@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 //styles
 import {
@@ -6,15 +6,9 @@ import {
   PanelTitle,
   PanelContent
 } from "styles/Tabs/Content/accordion";
-//constants
-import { ThemeContext } from "constants/Tabs/Content/theme";
 
 const AccordionItem = ({ title, content, opened, titleClick }) => (
-  <ExpansionPanel
-    opened={opened}
-    color={useContext(ThemeContext).color}
-    background={useContext(ThemeContext).background}
-  >
+  <ExpansionPanel opened={opened}>
     <PanelTitle onClick={titleClick} opened={opened}>
       {title}
     </PanelTitle>
@@ -27,11 +21,6 @@ AccordionItem.propTypes = {
   content: PropTypes.string.isRequired,
   opened: PropTypes.bool.isRequired,
   titleClick: PropTypes.func.isRequired
-};
-
-ExpansionPanel.propTypes = {
-  color: PropTypes.string,
-  background: PropTypes.string
 };
 
 export default AccordionItem;

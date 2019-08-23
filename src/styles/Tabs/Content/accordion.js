@@ -3,8 +3,6 @@ import styled, { css } from "styled-components";
 const ExpansionPanel = styled.div`
   width: auto;
   height: 100%;
-  color: ${({ color }) => color};
-  background: ${({ background }) => background};
   margin-bottom: 1px;
   box-shadow: 0 1px 1px #a29e9e;
   ${({ opened }) =>
@@ -50,7 +48,6 @@ const PanelContent = styled.div`
 `;
 
 const AccordionContainer = styled.div`
-  background: #f5f5f5;
   margin-top: 10px;
   line-height: 35px;
 `;

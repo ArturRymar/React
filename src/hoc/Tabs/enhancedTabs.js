@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 //constants
 import { tabButtons } from "constants/Tabs/Item/tabItem";
-import { ThemeContext } from "constants/Tabs/Content/theme";
+import { ThemeContext, ThemeProvider } from "context-providers/Themes/index";
 
 const enhancedTabs = Component => {
   const EnhancedComponent = props => {
@@ -14,20 +14,18 @@ const enhancedTabs = Component => {
     };
 
     const changeTheme = () => {
-      activeTheme === theme.light
-        ? setActiveTheme(theme.dark)
-        : setActiveTheme(theme.light);
+      setActiveTheme(activeTheme === theme.light ? theme.dark : theme.light);
     };
 
     return (
-      <ThemeContext.Provider value={activeTheme}>
+      <ThemeProvider value={activeTheme}>
         <Component
           {...props}
           activeTab={activeTab}
           buttonClick={buttonClick}
           changeTheme={changeTheme}
         />
-      </ThemeContext.Provider>
+      </ThemeProvider>
     );
   };
 

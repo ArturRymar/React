@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 //styles
 import {
@@ -9,8 +9,6 @@ import {
   RowContainer,
   TitleContainer
 } from "styles/Tabs/Content/table";
-//constants
-import { ThemeContext } from "constants/Tabs/Content/theme";
 
 const Titles = ({ title }) => (
   <TitleContainer number={title.length}>
@@ -33,10 +31,7 @@ const TableContent = ({ content }) => (
 );
 
 const Table = ({ title, content }) => (
-  <TableBody
-    color={useContext(ThemeContext).color}
-    background={useContext(ThemeContext).background}
-  >
+  <TableBody>
     <Titles title={title} />
     <TableContent content={content} />
   </TableBody>
@@ -47,8 +42,4 @@ Table.propTypes = {
   content: PropTypes.array.isRequired
 };
 
-TableBody.propTypes = {
-  color: PropTypes.string,
-  background: PropTypes.string
-};
 export default Table;

@@ -10,7 +10,8 @@ const Container = styled.div`
 const TabContainer = styled.div`
   width: 850px;
   height: 45px;
-  background: #375dd6;
+  color: ${({ color }) => color};
+  background: ${({ background }) => background};
   position: relative;
   z-index: 1;
   &:before {
@@ -18,42 +19,44 @@ const TabContainer = styled.div`
     width: 100%;
     height: 100%;
     position: absolute;
-    box-shadow: 0 3px 5px black;
+    box-shadow: 0 1px 3px black;
     z-index: -1;
   }
 `;
 
 const ContentContainer = styled.div`
+  color: ${({ color }) => color};
+  background: ${({ background }) => background};
   width: auto;
   height: auto;
-  background: white;
-  color: black;
   line-height: 55px;
 `;
 
 const Content = styled.div`
   margin-left: 15px;
   font-size: 15px;
+  margin-top: 15px;
 `;
 
 const Item = styled.button`
   height: 45px;
   width: 120px;
   outline: none;
-  background: transparent;
+  background: inherit;
+  color: inherit;
   font-size: 12px;
   cursor: pointer;
   border: none;
-  color: #dedddd;
   font-weight: bold;
   line-height: 45px;
+  opacity: 0.5;
   ${({ active }) =>
     active &&
     css`
-      color: white;
+      opacity: 1;
       border-bottom: 1.5px solid #d9386a;
       transition: color 0.3s ease-in-out;
-    `}
+    `};
 `;
 
 export { Item, Content, ContentContainer, TabContainer, Container };

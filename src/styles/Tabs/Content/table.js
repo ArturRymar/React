@@ -8,15 +8,14 @@ const TableBody = styled.div`
   font-size: 13px;
   position: relative;
   z-index: 1;
-  color: ${({ color }) => color};
-  background: ${({ background }) => background};
   &:before {
     content: "";
     width: 100%;
     height: 100%;
     position: absolute;
-    box-shadow: 0 2px 5px #a29e9e;
+    box-shadow: 0 1px 3px #272d39;
     z-index: -1;
+    border-bottom: 1px solid black;
   }
 `;
 
@@ -49,7 +48,6 @@ const Title = styled.div`
   padding: 0 6px;
   text-align: right;
   font-weight: bold;
-  opacity: 0.4;
   line-height: 40px;
   border-bottom: 1px solid black;
 `;
@@ -69,7 +67,8 @@ const ThemeButton = styled.button`
   border: 2px solid #8a8888;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 8px 0 rgba(0, 0, 0, 0.19);
   outline: none;
-  background: lightblue;
+  background: inherit;
+  color: inherit;
   font-size: 14px;
   cursor: pointer;
   margin: 15px;

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import PropTypes from "prop-types";
 //styles
 import {
   Container,
@@ -12,6 +13,7 @@ import { ThemeButton } from "styles/Tabs/Content/table";
 import { tabButtons, tabContent } from "constants/Tabs/Item/tabItem";
 import { tableTitle, tableContent } from "constants/Tabs/Content/table";
 import { panels } from "constants/Tabs/Content/accordion";
+import { ThemeContext } from "context-providers/Themes/index";
 //components
 import TabItem from "components/Tabs/Item/TabItem";
 import Accordion from "renderProps/Accordion/index";
@@ -23,10 +25,16 @@ const Tabs = props => {
   const { buttonClick, activeTab, changeTheme } = props;
   return (
     <Container>
-      <TabContainer>
+      <TabContainer
+        color={useContext(ThemeContext).color}
+        background={useContext(ThemeContext).background}
+      >
         <TabItem activeTab={activeTab} buttonClick={buttonClick} />
       </TabContainer>
-      <ContentContainer>
+      <ContentContainer
+        color={useContext(ThemeContext).color}
+        background={useContext(ThemeContext).background}
+      >
         {activeTab === tabButtons.first && (
           <AccordionContainer>
             <Accordion>
@@ -56,6 +64,16 @@ const Tabs = props => {
       </ContentContainer>
     </Container>
   );
+};
+
+TabContainer.propTypes = {
+  color: PropTypes.string,
+  background: PropTypes.string
+};
+
+ContentContainer.propTypes = {
+  color: PropTypes.string,
+  background: PropTypes.string
 };
 
 export default enhancedTabs(Tabs);
