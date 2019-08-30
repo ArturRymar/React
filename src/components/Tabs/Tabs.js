@@ -27,16 +27,10 @@ const Tabs = props => {
   const { changeTheme, theme } = useContext(ThemeContext);
   return (
     <Container>
-      <TabContainer
-        color={theme.color}
-        background={theme.background}
-      >
+      <TabContainer color={theme.color} background={theme.background}>
         <TabItem activeTab={activeTab} buttonClick={buttonClick} />
       </TabContainer>
-      <ContentContainer
-        color={theme.color}
-        background={theme.background}
-      >
+      <ContentContainer color={theme.color} background={theme.background}>
         {activeTab === tabButtons.first && (
           <AccordionContainer>
             <Accordion>
