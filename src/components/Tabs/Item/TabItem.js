@@ -11,7 +11,7 @@ const TabItem = ({ buttonClick, activeTab }) => (
       <Item
         key={name.toString()}
         active={activeTab === name}
-        onClick={buttonClick(name)}
+        onClick={() => buttonClick(name)}
       >
         {name}
       </Item>

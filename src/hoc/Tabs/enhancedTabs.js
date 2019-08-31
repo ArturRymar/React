@@ -1,16 +1,17 @@
-import React, { useState } from "react";
-//constants
-import { tabButtons } from "constants/Tabs/Item/tabItem";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 //context
 import { ThemeProvider } from "context-providers/Themes/light_dark";
+//store
+import { setActiveTabs } from "store/modules/tabs";
 
 const enhancedTabs = Component => {
   const EnhancedComponent = props => {
-    const [activeTab, setActiveTab] = useState(tabButtons.first);
-
-    const buttonClick = value => () => {
-      setActiveTab(value);
-    };
+    const dispatch = useDispatch();
+    const buttonClick = payload => dispatch(setActiveTabs(payload));
+    const { activeTab } = useSelector(state => ({
+      activeTab: state.tabs.activeTab
+    }));
 
     return (
       <ThemeProvider>

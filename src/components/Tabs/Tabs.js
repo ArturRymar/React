@@ -19,8 +19,9 @@ import { ThemeContext } from "context-providers/Themes/light_dark";
 import TabItem from "components/Tabs/Item/TabItem";
 import Accordion from "renderProps/Accordion/index";
 import Table from "components/Tabs/Content/Table/Table";
-import enhancedTabs from "hoc/Tabs/enhancedTabs";
 import AccordionItem from "components/Tabs/Content/Accordion/Accordion";
+//hoc
+import enhancedTabs from "hoc/Tabs/enhancedTabs";
 
 const Tabs = props => {
   const { buttonClick, activeTab } = props;
@@ -40,7 +41,7 @@ const Tabs = props => {
                     key={elem.id}
                     title={elem.title}
                     content={elem.content}
-                    titleClick={titleClick(elem.id)}
+                    titleClick={() => titleClick(elem.id)}
                     opened={activePanels.includes(elem.id)}
                   />
                 ))
