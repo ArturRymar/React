@@ -1,6 +1,6 @@
 import { createAction, handleActions } from "redux-actions";
 
-const SET_PANEL = "SET_PANELS";
+const SET_PANEL = "@@panels/SET_PANELS";
 
 const initialStatePanels = { activePanels: [] };
 

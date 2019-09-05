@@ -2,7 +2,7 @@ import { createAction, handleActions } from "redux-actions";
 //constants
 import { tabButtons } from "constants/Tabs/Item/tabItem";
 
-const SET_TAB = "SET_TAB";
+const SET_TAB = "@@tabs/SET_TAB";
 
 const initialStateTabs = { activeTab: tabButtons.first };
 
